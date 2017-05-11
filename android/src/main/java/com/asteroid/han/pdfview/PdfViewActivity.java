@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnDrawListener;
@@ -49,6 +50,12 @@ public class PdfViewActivity extends AppCompatActivity implements OnDrawListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdfview);
+        findViewById(R.id.back_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         //必须调用初始化
         OkGo.init(getApplication());
 
@@ -86,13 +93,6 @@ public class PdfViewActivity extends AppCompatActivity implements OnDrawListener
         } catch (Exception e) {
             e.printStackTrace();
         }
-        findViewById(R.id.back_icon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
         progressDialog = new ProgressDialog(this);
         pdfView = ((PDFView) findViewById(R.id.pdfView));
 
@@ -102,7 +102,14 @@ public class PdfViewActivity extends AppCompatActivity implements OnDrawListener
         ((TextView) findViewById(R.id.toolbar_title)).setText(filename.replace(".pdf",""));
 
         if (checkPermissions()) {
-            downLoadFile(url,filename);
+            try {
+                downLoadFile(url, filename);
+            }catch (Exception e){
+                e.printStackTrace();
+                progressDialog.dismiss();
+                Toast.makeText(this, "文件错误", Toast.LENGTH_SHORT).show();
+                finish();
+            }
         }
 //        showFile(new File("/storage/emulated/0/show.pdf"));
 
@@ -143,7 +150,7 @@ public class PdfViewActivity extends AppCompatActivity implements OnDrawListener
                 .load();
     }
 
-    private void downLoadFile(String url,String filename) {
+    private void downLoadFile(String url,String filename) throws IllegalArgumentException{
 //        progressDialog.setMessage("下载中...");
         progressDialog = progressDialog.show(this,"提示","下载中...",true,false);
         OkGo.get(url)//
@@ -163,6 +170,15 @@ public class PdfViewActivity extends AppCompatActivity implements OnDrawListener
                         //这里回调下载进度(该回调在主线程,可以直接更新ui)
                         Log.i("进度————————————", currentSize + "");
 
+                    }
+
+                    @Override
+                    public void onError(Call call, Response response, Exception e) {
+                        super.onError(call, response, e);
+                        e.printStackTrace();
+                        progressDialog.dismiss();
+                        Toast.makeText(PdfViewActivity.this, "下载失败", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
     }
