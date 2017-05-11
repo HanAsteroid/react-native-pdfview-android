@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/guhaikuan/ReactNativeProjects/pdf/android/react-native-pdfview/src/main/assets"/><source path="/Users/guhaikuan/ReactNativeProjects/pdf/android/react-native-pdfview/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/guhaikuan/ReactNativeProjects/pdf/android/react-native-pdfview/src/release/assets"/></dataSet></merger>

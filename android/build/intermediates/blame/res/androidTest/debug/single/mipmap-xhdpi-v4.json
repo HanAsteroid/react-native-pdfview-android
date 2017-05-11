@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/guhaikuan/ReactNativeProjects/pdf/android/react-native-pdfview/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4/icon_nav_back.png",
+        "source": "/Users/guhaikuan/ReactNativeProjects/pdf/android/react-native-pdfview/build/intermediates/bundles/debug/res/mipmap-xhdpi-v4/icon_nav_back.png"
+    },
+    {
+        "merged": "/Users/guhaikuan/ReactNativeProjects/pdf/android/react-native-pdfview/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4/ic_launcher.png",
+        "source": "/Users/guhaikuan/ReactNativeProjects/pdf/android/react-native-pdfview/build/intermediates/bundles/debug/res/mipmap-xhdpi-v4/ic_launcher.png"
+    }
+]

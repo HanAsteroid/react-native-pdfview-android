@@ -1,0 +1,23 @@
+{
+  "name": "react-native-pdfview-android",
+  "version": "1.0.3",
+  "description": "This is a Android platform to download and display PDF react-native components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HanAsteroid/react-native-pdfview-android.git"
+  },
+  "keywords": [
+    "ghk"
+  ],
+  "author": "guhaikuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HanAsteroid/react-native-pdfview-android/issues"
+  },
+  "homepage": "https://github.com/HanAsteroid/react-native-pdfview-android#readme"
+}
+
