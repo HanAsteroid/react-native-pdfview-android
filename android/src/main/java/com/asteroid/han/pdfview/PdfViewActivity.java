@@ -70,9 +70,9 @@ public class PdfViewActivity extends AppCompatActivity implements OnDrawListener
                     .debug("OkGo", Level.INFO, true)
 
                     //如果使用默认的 60秒,以下三行也不需要传
-                    .setConnectTimeout(10)  //全局的连接超时时间
-                    .setReadTimeOut(10)     //全局的读取超时时间
-                    .setWriteTimeOut(10)    //全局的写入超时时间
+                    .setConnectTimeout(10000)  //全局的连接超时时间
+                    .setReadTimeOut(100000)     //全局的读取超时时间
+                    .setWriteTimeOut(10000)    //全局的写入超时时间
 
                     //可以全局统一设置缓存模式,默认是不使用缓存,可以不传,具体其他模式看 github 介绍 https://github.com/jeasonlzy/
                     .setCacheMode(CacheMode.NO_CACHE)
